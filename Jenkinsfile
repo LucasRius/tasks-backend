@@ -80,6 +80,9 @@ pipeline{
         always{
             junit allowEmptyResults: true, testResults: 'target/surefire-reports/*.xml, api-test/target/surefire-reports/*.xml, functional-test/target/surefire-reports/*.xml, functional-test/target/failsafe-reports/*.xml'
         }
+        unsuccessful {
+            emailext attachLog: true, body: 'Veja o log', subject: 'Build $BUILD_NUMBER falhou', to: 'lucasrius.aws+jenkins@gmail.com'
+        }
     }
 }
 
