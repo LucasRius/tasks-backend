@@ -83,6 +83,9 @@ pipeline{
         unsuccessful {
             emailext attachLog: true, body: 'Veja o log', subject: 'Build $BUILD_NUMBER falhou', to: 'lucasrius.aws+jenkins@gmail.com'
         }
+        fixed {
+            emailext attachLog: true, body: 'Veja o log', subject: 'Build $BUILD_NUMBER esta ok', to: 'lucasrius.aws+jenkins@gmail.com'
+        }
     }
 }
 
